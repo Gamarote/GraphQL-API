@@ -5,19 +5,24 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 
-// --- Routers ---
-import indexRouter from './routers/index.router'
-// ---------------
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
+
+import schema from './schema'
 
 var app = express()
 
 app.set('PORT', process.env.PORT || 8000)
 app.use(cors())
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
 
-// --- Routes ---
-app.use('/', indexRouter)
+// --- Set up GraphQL ---
+app.use('/graphql', 
+    graphqlExpress({ schema: schema })
+)
+
+app.use('/graphiql',
+    graphiqlExpress({ endpointURL: '/graphql' })
+)
 // --------------
 
 app.listen(app.get('PORT'), ()=>{
