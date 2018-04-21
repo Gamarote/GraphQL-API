@@ -5,37 +5,37 @@ exports.up = function(knex, Promise) {
                 if(!exists){
                     return knex.schema.withSchema('family').createTable('people_relations', table => {
                         table
-                            .uuid('person_1')
+                            .uuid('perSON_1')
                             .notNullable()
 
                         table
-                            .uuid('person_2')
+                            .uuid('perSON_2')
                             .notNullable()
 
                         table
                             .enu('relation', [
-                                'Married',
-                                'Father-Son',
-                                'Mother-Son',
-                                'Father-Daughter',
-                                'Mother-Daughter',
-                                'Brother-Sister',
-                                'Brothers',
-                                'Sisters'
+                                'MARRIED',
+                                'FATHER_SON',
+                                'MOTHER_SON',
+                                'FATHER_DAUGHTER',
+                                'MOTHER_DAUGHTER',
+                                'BROTHER_SISTER',
+                                'BROTHERS',
+                                'SISTERS'
                             ])
                             .notNullable()
 
                         table
-                            .foreign('person_1')
+                            .foreign('perSON_1')
                             .references('id')
                             .inTable('people')
 
                         table
-                            .foreign('person_2')
+                            .foreign('perSON_2')
                             .references('id')
                             .inTable('people')
 
-                        table.primary(['person_1', 'person_2'])
+                        table.primary(['perSON_1', 'perSON_2'])
                     })
                 }
             })
