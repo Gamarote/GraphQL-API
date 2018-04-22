@@ -1,4 +1,5 @@
 import HomeModel from '../../models/home'
+import uuid from 'uuid/v4'
 
 class HomeRepository {
     async getAll() {
@@ -17,6 +18,28 @@ class HomeRepository {
         })
 
         return result !== null ? result.toJSON() : null
+    }
+
+    async addNew({ address, city, state, country }){
+        var home = {
+            id: uuid(),
+            address,
+            city,
+            state,
+            country
+        }
+
+        var newHome = new HomeModel(home).save(null, { method: 'insert' })
+
+        var result
+        try {
+            result = await newHome
+        } catch(e) {
+            console.error(e)
+            result = null
+        }
+
+        return result !== null
     }
 }
 

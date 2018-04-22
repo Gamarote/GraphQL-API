@@ -1,5 +1,5 @@
 import HomeRepository from '../../repositories/home'
-import { getById, getAll } from '../commonResolvers'
+import { getById, getAll, addNew } from '../commonResolvers'
 
 const homeRepository = new HomeRepository()
 
@@ -7,6 +7,9 @@ const HomeResolvers = {
     Query: {
         getHomeById: getById(homeRepository),
         getAllHomes: getAll(homeRepository)
+    },
+    Mutation: {
+        addNewHome: addNew(homeRepository)
     }
 }
 
