@@ -6,7 +6,7 @@ const PeopleType = `
         name: String
         age: Int
         home: HomeType
-        familyMembers: [PeopleType]
+        hasRelationsTo: [PeopleType]
     }
 `
 

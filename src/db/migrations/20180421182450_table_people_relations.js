@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
                             .notNullable()
 
                         table
-                            .uuid('is_relation')
+                            .uuid('is_related')
                             .notNullable()
 
                         table
@@ -30,7 +30,7 @@ exports.up = function(knex, Promise) {
                             .notNullable()
 
                         table
-                            .foreign('is_relation')
+                            .foreign('is_related')
                             .references('id')
                             .inTable('family.people')
 

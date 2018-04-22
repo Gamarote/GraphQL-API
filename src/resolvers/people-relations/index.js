@@ -1,5 +1,5 @@
 import PeopleRelationsRepository from '../../repositories/people-relations'
-import { getById, getAll } from '../commonResolvers'
+import { getById, getAll } from '../_commonResolvers'
 
 const peopleRelationsRepository = new PeopleRelationsRepository()
 

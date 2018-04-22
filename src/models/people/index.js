@@ -13,8 +13,8 @@ const People = Bookshelf.Model.extend({
     home() {
         return this.belongsTo('Home', 'home_id')
     },
-    familyMembers() {
-        return this.belongsToMany('People', 'family.people_relations', 'is_relation', 'of_person')
+    hasRelationsTo() {
+        return this.belongsToMany('People', 'family.people_relations', 'is_related', 'of_person')
     }
 })
 

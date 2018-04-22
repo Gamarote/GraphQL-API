@@ -8,8 +8,8 @@ const PeopleRelations = Bookshelf.Model.extend({
     toJSON() {
         return Bookshelf.Model.prototype.toJSON.apply(this, arguments)
     },
-    isRelation() {
-        return this.belongsTo('People', 'is_relation')
+    isRelated() {
+        return this.belongsTo('People', 'is_related')
     },
     ofPerson() {
         return this.belongsTo('People', 'of_person')

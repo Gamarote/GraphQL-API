@@ -1,5 +1,5 @@
 import HomeRepository from '../../repositories/home'
-import { getById, getAll, addNew } from '../commonResolvers'
+import { getById, getAll, addNew } from '../_commonResolvers'
 
 const homeRepository = new HomeRepository()
 
