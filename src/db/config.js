@@ -1,4 +1,13 @@
 require('dotenv').load()
+
+var poolMin, poolMax
+try {
+    poolMin = parseInt(process.env.POSTGRES_POOL_MIN)
+    poolMax = parseInt(process.env.POSTGRES_POOL_MAX)
+} catch(e) {
+    console.error(e)
+}
+
 module.exports = {
     client: 'pg',
     seeds: {
@@ -13,8 +22,8 @@ module.exports = {
         charset: 'utf8'
     },
     pool: {
-        min: process.env.POSTGRES_POOL_MIN || 1,
-        max: process.env.POSTGRES_POOL_MAX || 1
+        min: poolMin || 1,
+        max: poolMax || 1
     },
     debug: true
 }

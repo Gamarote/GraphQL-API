@@ -10,7 +10,7 @@ class PeopleRepository {
     }
 
     async getById(id){
-        qWhere = { id }
+        var qWhere = { id }
 
         let result = await PeopleModel.where(qWhere).fetch({
             withRelated: ['home', 'familyMembers']

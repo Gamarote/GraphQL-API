@@ -1,10 +1,19 @@
-import Bookshelf from 'bookshelf'
+import Bookshelf from '../../db'
+
+import '../people'
 
 const PeopleRelations = Bookshelf.Model.extend({
     tableName: 'family.people_relations',
-    toJSON: () => Bookshelf.Model.prototype.toJSON.apply(this, arguments),
-    person1: () => this.belongsTo('People', 'person_1'),
-    person2: () => this.belongsTo('People', 'person_2')
+    idAttribute: 'id',
+    toJSON() {
+        return Bookshelf.Model.prototype.toJSON.apply(this, arguments)
+    },
+    isRelation() {
+        return this.belongsTo('People', 'is_relation')
+    },
+    ofPerson() {
+        return this.belongsTo('People', 'of_person')
+    }
 })
 
 export default Bookshelf.model('PeopleRelations', PeopleRelations)

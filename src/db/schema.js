@@ -2,7 +2,8 @@ import Joi from 'joi'
 import _ from 'lodash'
 
 export default (bookshelf) => {
-    bookshelf.Model = bookshelf.Model.extend({
+    var Model = bookshelf.Model
+    bookshelf.Model = Model.extend({
         constructor(){
             Model.prototype.constructor.apply(this, arguments)
             

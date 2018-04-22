@@ -36,9 +36,10 @@ exports.seed = function (knex, Promise) {
     .then(() => {
       return knex('family.people_relations').insert([
         {
-          person_1: '8d01cbc8-d6c7-4934-aec0-fb56a925bd11',
-          person_2: 'd41c0a1e-c7de-4dda-916d-898f5a145688',
-          relation: 'FATHER_SON'
+          id: '522f5bd9-4fa7-4f72-abcf-2cd5658a1d35',
+          is_relation: '8d01cbc8-d6c7-4934-aec0-fb56a925bd11',
+          of_person: 'd41c0a1e-c7de-4dda-916d-898f5a145688',
+          relation: 'FATHER'
         }
       ])
     })

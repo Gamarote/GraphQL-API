@@ -3,8 +3,9 @@ import RelationsType from './relations-type'
 
 const PeopleRelationsType = `
     type PeopleRelationsType {
-        person1: PeopleType
-        person2: PeopleType
+        id: ID
+        isRelation: PeopleType
+        ofPerson: PeopleType
         relation: RelationsType
     }
 `

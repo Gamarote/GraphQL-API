@@ -1,13 +1,13 @@
 const RelationsType = `
     enum RelationsType {
-        MARRIED
-        FATHER_SON
-        MOTHER_SON
-        FATHER_DAUGHTER
-        MOTHER_DAUGHTER
-        BROTHER_SISTER
-        BROTHERS
-        SISTERS
+        HUSBAND
+        WIFE
+        MOTHER
+        FATHER
+        BROTHER
+        SISTER
+        SON
+        DAUGHTER
     }
 `
 

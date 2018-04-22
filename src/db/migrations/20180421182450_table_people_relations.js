@@ -5,37 +5,41 @@ exports.up = function(knex, Promise) {
                 if(!exists){
                     return knex.schema.withSchema('family').createTable('people_relations', table => {
                         table
-                            .uuid('person_1')
+                            .uuid('id')
                             .notNullable()
 
                         table
-                            .uuid('person_2')
+                            .uuid('is_relation')
+                            .notNullable()
+
+                        table
+                            .uuid('of_person')
                             .notNullable()
 
                         table
                             .enu('relation', [
-                                'MARRIED',
-                                'FATHER_SON',
-                                'MOTHER_SON',
-                                'FATHER_DAUGHTER',
-                                'MOTHER_DAUGHTER',
-                                'BROTHER_SISTER',
-                                'BROTHERS',
-                                'SISTERS'
+                                'HUSBAND',
+                                'WIFE',
+                                'MOTHER',
+                                'FATHER',
+                                'BROTHER',
+                                'SISTER',
+                                'SON',
+                                'DAUGHTER'
                             ])
                             .notNullable()
 
                         table
-                            .foreign('person_1')
+                            .foreign('is_relation')
                             .references('id')
                             .inTable('family.people')
 
                         table
-                            .foreign('person_2')
+                            .foreign('of_person')
                             .references('id')
                             .inTable('family.people')
 
-                        table.primary(['person_1', 'person_2'])
+                        table.primary('id')
                     })
                 }
             })

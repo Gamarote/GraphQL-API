@@ -10,7 +10,7 @@ class HomeRepository {
     }
 
     async getById(id){
-        qWhere = { id }
+        var qWhere = { id }
 
         let result = await HomeModel.where(qWhere).fetch({
             withRelated: ['residents']

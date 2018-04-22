@@ -1,3 +1,4 @@
+import PeopleType from '../people/people-type'
 
 const HomeType = `
     type HomeType {
@@ -6,7 +7,8 @@ const HomeType = `
         city: String
         state: String
         country: String
+        residents: [PeopleType]
     }
 `
 
-export default () => [HomeType]
+export default () => [HomeType, PeopleType]
