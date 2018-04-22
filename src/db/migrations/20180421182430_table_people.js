@@ -13,7 +13,7 @@ exports.up = function(knex, Promise) {
                             .notNullable()
 
                         table
-                            .int('age')
+                            .integer('age')
                             .notNullable()
 
                         table

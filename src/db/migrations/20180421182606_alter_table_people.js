@@ -5,8 +5,8 @@ exports.up = function(knex, Promise) {
                 return knex.schema.withSchema('family').table('people', table => {
                     table
                         .foreign('home_id')
-                        .references('usuario_id')
-                        .inTable('family.usuario')
+                        .references('id')
+                        .inTable('family.home')
                 })
             }
         })

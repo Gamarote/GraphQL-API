@@ -5,11 +5,11 @@ exports.up = function(knex, Promise) {
                 if(!exists){
                     return knex.schema.withSchema('family').createTable('people_relations', table => {
                         table
-                            .uuid('perSON_1')
+                            .uuid('person_1')
                             .notNullable()
 
                         table
-                            .uuid('perSON_2')
+                            .uuid('person_2')
                             .notNullable()
 
                         table
@@ -26,16 +26,16 @@ exports.up = function(knex, Promise) {
                             .notNullable()
 
                         table
-                            .foreign('perSON_1')
+                            .foreign('person_1')
                             .references('id')
-                            .inTable('people')
+                            .inTable('family.people')
 
                         table
-                            .foreign('perSON_2')
+                            .foreign('person_2')
                             .references('id')
-                            .inTable('people')
+                            .inTable('family.people')
 
-                        table.primary(['perSON_1', 'perSON_2'])
+                        table.primary(['person_1', 'person_2'])
                     })
                 }
             })

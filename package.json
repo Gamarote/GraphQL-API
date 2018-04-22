@@ -9,7 +9,7 @@
     "start": "node server",
     "build": "babel src --out-dir server",
     "migrate": "knex migrate:latest --knexfile ./src/db/config.js",
-    "migrate:seeds": "knex seed:run --knexfile ./src/db/config.js",
+    "migrate:seeds": "knex seed:run --knexfile ./src/db/config.js"
   },
   "author": {
     "name": "Gabriel Marote",
