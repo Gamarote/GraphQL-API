@@ -10,8 +10,8 @@ class PeopleRelationsRepository extends DefaultRepository {
     async getByRelation(relation){
         var qWhere = { relation }
 
-        let result = await PeopleRelationsModel.where(qWhere).fetchAll({
-            withRelated: ['isRelated', 'ofPerson']
+        let result = await this.Model.where(qWhere).fetchAll({
+            withRelated: this.relations
         })
 
         return result !== null ? result.toJSON() : []
